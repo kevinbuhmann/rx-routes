@@ -1,0 +1,34 @@
+{
+  "name": "rx-routes",
+  "version": "0.1.0",
+  "description": "Routes for Express using Observable actions.",
+  "main": "dist/index",
+  "scripts": {
+    "clean": "rimraf dist",
+    "lint": "tslint \"src/**/*.ts\"",
+    "build": "yarn run clean && yarn run lint && yarn run build:typescript",
+    "build:typescript": "tsc --project tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinphelps/rx-routes.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinphelps/rx-routes/issues"
+  },
+  "homepage": "https://github.com/kevinphelps/rx-routes#readme",
+  "dependencies": {
+    "express": "4.14.1",
+    "reflect-metadata": "0.1.9",
+    "rxjs": "5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "4.0.35",
+    "@types/node": "7.0.5",
+    "rimraf": "2.5.4",
+    "tslint": "4.4.2",
+    "typescript": "2.1.5"
+  }
+}
