@@ -2,7 +2,8 @@
   "name": "rx-routes",
   "version": "0.1.0",
   "description": "Routes for Express using Observable actions.",
-  "main": "dist/index",
+  "main": "dist/index.js",
+  "typings": "dist/index",
   "scripts": {
     "clean": "rimraf dist",
     "lint": "tslint \"src/**/*.ts\"",
