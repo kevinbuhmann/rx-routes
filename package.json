@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/kevinphelps/rx-routes#readme",
   "dependencies": {
-    "express": "4.14.1",
-    "reflect-metadata": "0.1.9",
-    "rxjs": "5.1.0"
+    "express": "^4.0.0",
+    "reflect-metadata": "^0.1.0",
+    "rxjs": "^5.0.0"
   },
   "devDependencies": {
     "@types/express": "4.0.35",
