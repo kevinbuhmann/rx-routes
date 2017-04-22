@@ -5,6 +5,8 @@
   "main": "dist/index.js",
   "typings": "dist/index",
   "scripts": {
+    "patch-release": "npm run build && npm version patch && npm publish && git push --follow-tags",
+    "minor-release": "npm run build && npm version minor && npm publish && git push --follow-tags",
     "clean": "rimraf dist",
     "lint": "tslint \"src/**/*.ts\"",
     "build": "yarn run clean && yarn run lint && yarn run build:typescript",
