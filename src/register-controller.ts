@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 
 import { basePathKey, routesKey, ObservableHandler, RouteDescriptor } from '.';
 
-export type ErrorHandler = (req: express.Request, res: express.Response, error: any) => void;
+export type ErrorHandler = (req: express.Request, res: express.Response, next: express.NextFunction, error: any) => void;
 
 export function registerController(router: express.Router, controller: any, handleError: ErrorHandler = defaultErrorHandler) {
   let basePath: string = Reflect.getMetadata(basePathKey, controller.constructor);
@@ -62,13 +62,13 @@ function wrapHandler(handler: ObservableHandler, handleError: ErrorHandler) {
 
         observable
           .catch(error => {
-            handleError(req, res, error);
+            handleError(req, res, next, error);
             return Observable.of(undefined);
           })
           .subscribe(() => { });
       }
     } catch (exception) {
-      handleError(req, res, exception);
+      handleError(req, res, next, exception);
     }
   };
 }
