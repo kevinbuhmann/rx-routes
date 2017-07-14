@@ -8,7 +8,7 @@
     "patch-release": "npm run build && npm version patch && npm publish && git push --follow-tags",
     "minor-release": "npm run build && npm version minor && npm publish && git push --follow-tags",
     "clean": "rimraf dist",
-    "lint": "tslint \"src/**/*.ts\"",
+    "lint": "tslint --project tsconfig.json --type-check",
     "build": "yarn run clean && yarn run lint && yarn run build:typescript",
     "build:typescript": "tsc --project tsconfig.json"
   },
@@ -22,16 +22,19 @@
     "url": "https://github.com/kevinphelps/rx-routes/issues"
   },
   "homepage": "https://github.com/kevinphelps/rx-routes#readme",
-  "dependencies": {
+  "peerDependencies": {
     "express": "^4.0.0",
     "reflect-metadata": "^0.1.0",
     "rxjs": "^5.0.0"
   },
   "devDependencies": {
-    "@types/express": "4.0.35",
-    "@types/node": "7.0.12",
+    "@types/express": "4.0.36",
+    "@types/node": "8.0.13",
+    "express": "4.15.3",
+    "reflect-metadata": "0.1.10",
     "rimraf": "2.6.1",
-    "tslint": "4.5.1",
-    "typescript": "2.2.2"
+    "rxjs": "5.4.2",
+    "tslint": "5.5.0",
+    "typescript": "2.4.1"
   }
 }
