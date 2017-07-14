@@ -11,12 +11,12 @@ import { basePathKey, routesKey, ObservableHandler, RouteDescriptor } from '.';
 export type ErrorHandler = (req: express.Request, res: express.Response, next: express.NextFunction, error: any) => void;
 
 export function registerController(router: express.Router, controller: any, handleError: ErrorHandler = defaultErrorHandler) {
-  let basePath: string = Reflect.getMetadata(basePathKey, controller.constructor);
-  let routes: RouteDescriptor[] = getRoutes(controller);
+  const basePath: string = Reflect.getMetadata(basePathKey, controller.constructor);
+  const routes: RouteDescriptor[] = getRoutes(controller);
 
-  for (let route of routes) {
-    let path = `${basePath}${route.path ? route.path : ''}`;
-    let handler = wrapHandler(route.handler.bind(controller), handleError);
+  for (const route of routes) {
+    const path = `${basePath}${route.path ? route.path : ''}`;
+    const handler = wrapHandler(route.handler.bind(controller), handleError);
 
     if (route.method === 'get') {
       router.get(path, handler);
@@ -39,7 +39,7 @@ export function registerController(router: express.Router, controller: any, hand
 }
 
 function getRoutes(controller: any): RouteDescriptor[] {
-  let prototypes: any[] = [];
+  const prototypes: any[] = [];
   let currentPrototype = Object.getPrototypeOf(controller);
 
   while (currentPrototype != null) {
@@ -55,10 +55,10 @@ function getRoutes(controller: any): RouteDescriptor[] {
 function wrapHandler(handler: ObservableHandler, handleError: ErrorHandler) {
   return (req: express.Request, res: express.Response, next: express.NextFunction) => {
     try {
-      let result = handler(req, res, next);
+      const result = handler(req, res, next);
 
       if (result && result instanceof Observable) {
-        let observable: Observable<any> = result;
+        const observable: Observable<any> = result;
 
         observable
           .catch(error => {

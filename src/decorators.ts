@@ -11,7 +11,7 @@ export function Controller(basePath: string) {
 
 export function Use(path?: string) {
   return (target: Object, key: string | symbol, descriptor: TypedPropertyDescriptor<ObservableHandler>) => {
-    let routes = getOwnRoutes(target);
+    const routes = getOwnRoutes(target);
 
     routes.push({method: undefined, path, key, handler: descriptor.value});
     return descriptor;
@@ -20,7 +20,7 @@ export function Use(path?: string) {
 
 export function Route(method: Method, path = '') {
   return (target: Object, key: string | symbol, descriptor: TypedPropertyDescriptor<ObservableHandler>) => {
-    let routes = getOwnRoutes(target);
+    const routes = getOwnRoutes(target);
 
     routes.push({method, path, key, handler: descriptor.value});
     return descriptor;

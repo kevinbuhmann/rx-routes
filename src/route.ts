@@ -9,4 +9,4 @@ export interface RouteDescriptor {
   path: string;
   key: string | symbol;
   handler: ObservableHandler;
-};
+}
