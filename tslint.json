@@ -23,7 +23,7 @@
     "label-position": true,
     "max-line-length": [
       true,
-      140
+      180
     ],
     "member-access": false,
     "member-ordering": [
@@ -51,8 +51,8 @@
     ],
     "no-construct": true,
     "no-debugger": true,
-    "no-duplicate-variable": true,
     "no-duplicate-super": true,
+    "no-duplicate-variable": true,
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
@@ -68,7 +68,7 @@
     "no-unnecessary-initializer": true,
     "no-unsafe-finally": true,
     "no-unused-expression": true,
-    "no-unused-variable": [true, "check-parameters", {"ignore-pattern": "^_"}],
+    "no-unused-variable": [true, "check-parameters", { "ignore-pattern": "^_" }],
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
