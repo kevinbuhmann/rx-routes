@@ -8,7 +8,7 @@
     "patch-release": "npm run build && npm version patch && npm publish && git push --follow-tags",
     "minor-release": "npm run build && npm version minor && npm publish && git push --follow-tags",
     "clean": "rimraf dist",
-    "lint": "tslint --project tsconfig.json --type-check",
+    "lint": "tslint --project tsconfig.json",
     "build": "yarn run clean && yarn run lint && yarn run build:typescript",
     "build:typescript": "tsc --project tsconfig.json"
   },
@@ -25,16 +25,16 @@
   "peerDependencies": {
     "express": "^4.0.0",
     "reflect-metadata": "^0.1.0",
-    "rxjs": "^5.0.0"
+    "rxjs": "^6.0.0"
   },
   "devDependencies": {
-    "@types/express": "4.0.36",
-    "@types/node": "8.0.13",
-    "express": "4.15.3",
-    "reflect-metadata": "0.1.10",
-    "rimraf": "2.6.1",
-    "rxjs": "5.4.2",
-    "tslint": "5.5.0",
-    "typescript": "2.4.1"
+    "@types/express": "4.16.0",
+    "@types/node": "10.5.0",
+    "express": "4.16.3",
+    "reflect-metadata": "0.1.12",
+    "rimraf": "2.6.2",
+    "rxjs": "6.2.1",
+    "tslint": "5.10.0",
+    "typescript": "2.9.2"
   }
 }

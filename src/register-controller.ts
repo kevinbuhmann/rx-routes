@@ -2,9 +2,8 @@ import 'reflect-metadata';
 
 import * as express from 'express';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/catch';
+import { of, Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { basePathKey, routesKey, ObservableHandler, RouteDescriptor } from '.';
 
@@ -60,12 +59,12 @@ function wrapHandler(handler: ObservableHandler, handleError: ErrorHandler) {
       if (result && result instanceof Observable) {
         const observable: Observable<any> = result;
 
-        observable
-          .catch(error => {
+        observable.pipe(
+          catchError(error => {
             handleError(req, res, next, error);
-            return Observable.of(undefined);
+            return of(undefined);
           })
-          .subscribe(() => { });
+        ).subscribe(() => { });
       }
     } catch (exception) {
       handleError(req, res, next, exception);
